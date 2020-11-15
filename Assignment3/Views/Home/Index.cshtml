@@ -4,7 +4,8 @@
 
 
 <body>
-    <div>
+    <!--Välj kurs och modul, vet ej hur det ska läsas in-->
+    <div id="chooseCourse">
         <label for="course-select">Kurskod</label>
 
         <select name="course" id="course-select">
@@ -23,31 +24,57 @@
         </select>
 
     </div>
+    <!--Tror det är här en postmetod i HTML-->
+    <form method="POST" id="registerResults"></form>
 
+    <!--Tabell med rubriker och rader-->
+    <table id="maintable">
 
-    <table>
-        <colgroup span="4"></colgroup>
         <tr>
-            <th>Kurskod</th>
-            <th>Kursnamn</th>
-            <th>Betyg</th>
-            <th>Övrig</th>
+            <th></th>
+            <th>Namn</th>
+            <th>Omdöme i Canvas</th>
+            <th>Examinationsdatum</th>
+            <th>Betyg i Ladok</th>
+            <th>Status</th>
+            <th>Information</th>
         </tr>
+
         <tr>
-            <td>1337</td>
-            <td>ANs historia</td>
-            <td>VG</td>
-            <td>woke</td>
+            <td> <input type="checkbox" id="selectStud" name="selectStud"> </td>
+
+            <td> <input type="text" id="studentName" name="studentName" form="registerResults" /></td>
+
+            <td>
+                <select id="gradeCanvas" name="gradeCanvas" form="registerResults">
+                    <option value="failed">U</option>
+                    <option value="approvedGroup">G#</option>
+                    <option value="approved">G</option>
+                    <option value="wellApproved">VG</option>
+                </select>
+            </td>
+
+            <td> <input type="date" id="examineDate" name="examineDate" min="2020-11-16" max="2040-12-31"> </td>
+
+            <td>
+                <select id="gradeLadok" name="gradeLadok" form="registerResults">
+                    <option value="failed">U</option>
+                    <option value="approvedGroup">G#</option>
+                    <option value="approved">G</option>
+                    <option value="wellApproved">VG</option>
+                </select>
+            </td>
+
+            <td> <input type="text" form="registerResults" /></td>
+
+            <td> <input type="text" form="registerResults" /></td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+
     </table>
 
+  
 
+    <button class="buttonRegister" type="button" form="registerResults"> Registrera resultat</button>
 
 </body>
 
