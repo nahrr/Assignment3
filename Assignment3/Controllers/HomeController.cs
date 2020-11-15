@@ -17,7 +17,7 @@ namespace Assignment3.Controllers
         {
             _logger = logger;
         }
-
+        //Möjliggör att hämta sidorna
         public IActionResult Index()
         {
             return View();
