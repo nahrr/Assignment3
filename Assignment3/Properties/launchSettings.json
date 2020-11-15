@@ -4,7 +4,7 @@
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:51526",
-      "sslPort": 0 // ändrade till 0, standard 44384 - kan öppna utan varningar nu
+      "sslPort": 0 // ändrade till 0, standard 44384 - kan öppna utan varningar nu - TEST PUSH
     }
   },
   "profiles": {
