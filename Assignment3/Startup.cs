@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Assignment3.Data;
 
 namespace Assignment3
 {
@@ -24,6 +26,11 @@ namespace Assignment3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            
+            //**
+            services.AddDbContext<Data.JAContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
+
         }
 
 

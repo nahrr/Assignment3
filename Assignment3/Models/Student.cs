@@ -13,14 +13,14 @@ namespace Assignment3.Models
     public class Student
     {
         public int CourseNumber { get; set; }
-        public string CoureModule { get; set; }
-        public int Id {get; set;}
+        public string CourseModule { get; set; }
+        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string GradeCanvas { get; set; }
         public string ExamNumber { get; set; }
         public string Infomartion { get; set; }
-        public string examDate { get; set; }
+        public string ExamDate { get; set; }
         public string GradeLadok { get; set; }
         public string Status { get; set; }
 
