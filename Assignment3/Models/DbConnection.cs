@@ -28,7 +28,7 @@ namespace Assignment3.Models
 
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Connection failed");
+                    Console.WriteLine("Connection failed:" + ex);
                 }
 
             }
