@@ -27,6 +27,31 @@ namespace Assignment3.Controllers
         {
             return View();
         }
+        //Nya mallsidor från Create till IndexTest
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        public IActionResult Delete()
+        {
+            return View();
+        }
+
+        public IActionResult Details()
+        {
+            return View();
+        }
+
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
+        public IActionResult IndexTest()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
