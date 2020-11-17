@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Assignment3.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseModule)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GradeCanvas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExamNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Infomartion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExamDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GradeLadok)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseModule)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GradeCanvas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExamNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Infomartion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExamDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GradeLadok)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
