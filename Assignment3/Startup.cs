@@ -26,11 +26,11 @@ namespace Assignment3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            
+
             //**
             services.AddDbContext<Data.JAContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
-
+                options.UseInMemoryDatabase("TestDb"));
+                //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
         }
 
 

@@ -24,6 +24,6 @@ namespace Assignment3.Models
         public string GradeLadok { get; set; }
         public string Status { get; set; }
 
-
+       // public IList<Course> Courses { get; set; }
     }
 }
