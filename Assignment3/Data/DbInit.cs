@@ -32,6 +32,7 @@ namespace Assignment3.Data
             //}
 
             context.Courses.AddRange(Course.MadeUpCourses);
+            context.Students.AddRange(Student.MadeUpStudents);
             //context.Modules.AddRange(Module.Modules);
 
             context.SaveChanges();
