@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Assignment3.Controllers
 {
     [Route("api/[controller]")]
+    [Produces("application/json")]
     [ApiController]
     public class EpokController : ControllerBase
     {

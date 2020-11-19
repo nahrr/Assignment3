@@ -6,26 +6,17 @@
 <body>
     <!--Välj kurs och modul, vet ej hur det ska läsas in-->
     <div id="chooseCourse">
-        <label for="course-select">Kurskod</label>
 
-        <select name="course" id="course-select">
-            <option value=""> Välj en kurs </option>
-            <option value="test1">Test</option>
-            <option value="test2">Test2</option>
+        <label for="course-select">Kurskod</label>
+        <select id="course-select" name="course">
         </select>
 
-
-        <label for="modul-select">Kurskod</label>
-
-        <select name="modul" id="modul-select">
+        <select id="modul-select name="modul">
             <option value=""> Välj modul </option>
-            <option value="modul1">Modul_1</option>
-            <option value="modul2">Modul_2</option>
         </select>
 
     </div>
-    <!--Tror det är här en postmetod i HTML-->
-    <form method="POST" id="registerResults"></form>
+
 
     <!--Tabell med rubriker och rader-->
     <table id="maintable">
