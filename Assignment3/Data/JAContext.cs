@@ -16,17 +16,16 @@ namespace Assignment3.Data
         public DbSet<Models.Student> Students { get; set; }
         public DbSet<Models.Course> Courses { get; set; }
         public DbSet<Models.Module> Modules { get; set; }
+        public DbSet<Models.Ladok> LadokDb { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) // kolla upp - watch out
         {
-            modelBuilder.Entity<Models.Student>().ToTable("Student");
+            modelBuilder.Entity<Models.Student>().ToTable("Students");
             modelBuilder.Entity<Models.Course>(e =>
             {
-                //e.HasKey(x => x.CourseId);
-
                 e.HasMany(x => x.Modules)
                     .WithOne(x => x.Course);
-                
+              
                 e.ToTable("Courses");
            
             });
@@ -36,8 +35,8 @@ namespace Assignment3.Data
                     .WithMany(x => x.Modules);
                 
                 e.ToTable("Modules");
-
             });
+            modelBuilder.Entity<Models.Ladok>().ToTable("LadokDb");
         }
 
     }
