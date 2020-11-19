@@ -13,6 +13,7 @@ namespace Assignment3.Models
         public string Module { get; set; }
         public DateTime Date { get; set; }
         public string Grade { get; set; }
+        public string LadokId { get; set; }
 
     }
 }

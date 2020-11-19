@@ -5,18 +5,19 @@
 
 
 $(document).ready(function () {
-    $.ajax({
-        type: "GET",
-        url: "http://localhost:51526/api/epok/X0002X",
-        success: function (data) {
-            var s = '<option value="-1">Välj kurskod</option>';
-            //for (var i = 0; i < data.length; i++)
-              for (var i = 0; i < 1; i++) {
-                s += '<option value="' + data+ '">' + data + '</option>';
-            }
-            $("#course-select").html(s);
-        }
-    });
-});  
+
+
+    $.get('GetList', function (data) {
+        console.log(data)
+        $.each(data, function (index, value) {
+            console.log(index + value)
+            $('<option>').val(value).text(value).appendTo("#courseSelect");
+            })
+    })
+})
+
+
+
+  
 
 

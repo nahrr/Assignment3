@@ -36,7 +36,12 @@ namespace Assignment3.Data
                 
                 e.ToTable("Modules");
             });
-            modelBuilder.Entity<Models.Ladok>().ToTable("LadokDb");
+            modelBuilder.Entity<Models.Ladok>(e =>
+            {
+                e.HasKey(x => x.LadokId);
+
+                e.ToTable("LadokDb");
+            });
         }
 
     }

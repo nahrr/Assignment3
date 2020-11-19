@@ -18,7 +18,7 @@ namespace Assignment3.Models
             {
                 new Course
                 {
-                    //CourseId = 1,
+                    
                     CourseCode = "D0032X",
                     CourseName = "Testkurs",
                     Modules = new List<Module>
@@ -46,7 +46,7 @@ namespace Assignment3.Models
 
                 new Course
                 {
-                    //CourseId = 2,
+                    
                     CourseCode = "X0002X",
                     CourseName = "Testkurs2",
                     Modules = new List<Module>
@@ -67,7 +67,19 @@ namespace Assignment3.Models
                 }
             };
 
-    }
+        public void GetList2()
+        {
+            // List<string> calledList = myClass.GetList();
+            List<Course> DisplayCourses = Course.MadeUpCourses;
+            ///More code here...
+        }
+
+        public List<Course> GetList()
+        {
+            return MadeUpCourses;
+        }
+
+    }       
 }
 
 
