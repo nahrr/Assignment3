@@ -9,6 +9,7 @@ namespace Assignment3.Models
         public string ModuleDesc { get; set; }
         public Course Course { get; set; }
 
+        /*
         public static List<Module> Modules =>
             new List<Module>
             {
@@ -30,7 +31,7 @@ namespace Assignment3.Models
                     ModuleCode = "007",
                     ModuleDesc = "Tentamen Muntlig",
                 }
-            };
+            };*/
     }
 
 }

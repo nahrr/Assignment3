@@ -66,19 +66,6 @@ namespace Assignment3.Models
                     }
                 }
             };
-
-        public void GetList2()
-        {
-            // List<string> calledList = myClass.GetList();
-            List<Course> DisplayCourses = Course.MadeUpCourses;
-            ///More code here...
-        }
-
-        public List<Course> GetList()
-        {
-            return MadeUpCourses;
-        }
-
     }       
 }
 
