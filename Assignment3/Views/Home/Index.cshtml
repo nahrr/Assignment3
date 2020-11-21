@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Assignment3.Models;
+@using Assignment3.Controllers;
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -10,10 +13,20 @@
         <label for="courseSelect">Kurskod</label>
         <select id="courseSelect" name="course">
             <option>Välj kurs</option>
+
+            @{ var courses = Course.MadeUpCourses;
+                @foreach (var c in courses)
+                {
+                   <option value="@c.CourseCode"> @c.CourseCode @c.CourseName </option>
+                }
+             }
+
         </select>
 
         <select id="modulSelect name="modul">
             <option value=""> Välj modul </option>
+
+
         </select>
 
     </div>
