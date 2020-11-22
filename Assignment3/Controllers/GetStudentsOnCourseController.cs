@@ -20,17 +20,24 @@ namespace Assignment3.Controllers
             this._context = context;
         }
 
-        [Route("{courseCode}")]
+        [Route("{courseCode}/{moduleCode}")]
         [HttpGet]
-        public string GetStudentsByCourseCode(string courseCode)
+        public string GetStudentsByCourseCode(string courseCode, string moduleCode)
         {
-            var students = _context
+            var course = _context
+                .Courses
+                .Include(x => x.Modules)
+                .FirstOrDefault(x => x.CourseCode == courseCode);
+
+            var module = course
+                .Modules
+                .FirstOrDefault(x => x.ModuleCode == moduleCode);
+
+            var students = module
                 .Students
-                .Where(s => s.CourseCode == courseCode)
                 .ToList();
 
             return $"{string.Join(";", students.Select(x => $"{x.FirstName} {x.LastName}|{x.GradeCanvas}").ToArray())}";
         }
-
     }
 }
