@@ -42,6 +42,10 @@ namespace Assignment3.Data
 
                 e.ToTable("LadokDb");
             });
+           
+
+
+
         }
 
     }
