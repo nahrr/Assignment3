@@ -14,11 +14,11 @@ namespace Assignment3.Models
         public List<Module> Modules { get; set; }
 
         public static List<Course> MadeUpCourses =>
-            new List<Course>
-            {
+                    new List<Course>
+                    {
                 new Course
                 {
-                    
+
                     CourseCode = "D0032X",
                     CourseName = "Testkurs",
                     Modules = new List<Module>
@@ -27,7 +27,29 @@ namespace Assignment3.Models
                         {
                             //ModuleId = 1,
                             ModuleCode = "005",
-                            ModuleDesc = "Inlämningsuppgifter"
+                            ModuleDesc = "Inlämningsuppgifter",
+                            Students = new List<Student>
+                            {
+                                new Student {
+
+                                    FirstName = "Kalle",
+                                    LastName = "Anka",
+                                    Ssn = "801010-1111",
+                                    StudentId = "kalank-1",
+                                    CourseCode = "D0032X",
+                                    GradeCanvas = "G"
+                                },
+
+                                new Student {
+
+                                    FirstName = "Musse",
+                                    LastName = "Pigg",
+                                    Ssn = "838383-2222",
+                                    StudentId = "muspig-1",
+                                    CourseCode = "D0032X",
+                                    GradeCanvas = "VG"
+                                }
+                            }
                         },
                         new Module
                         {
@@ -46,7 +68,7 @@ namespace Assignment3.Models
 
                 new Course
                 {
-                    
+
                     CourseCode = "X0002X",
                     CourseName = "Testkurs2",
                     Modules = new List<Module>
@@ -65,8 +87,8 @@ namespace Assignment3.Models
                         }
                     }
                 }
-            };
-    }       
+                    };
+    }
 }
 
 

@@ -25,4 +25,29 @@ $('#courseSelect').on('change', function () {
             $('#moduleSelect').append("<option>" + modules[i] + "</option>");
         }
     });
+
 });
+
+function readInStudents() {
+
+    var e = document.getElementById("courseSelect")
+    var course = e.options[e.selectedIndex].text;
+
+    $.ajax({
+        url: "http://localhost:51526/api/GetStudentsOnCourse/" + course
+    }).then(function (data) {
+
+        var students = data.split(";");
+
+        for (i = 0; i < students.length; i++) {
+
+
+
+            var fields = students[i].split("|");
+
+            document.getElementById("studentName").value = fields[0];
+
+
+        }
+    });
+}

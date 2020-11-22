@@ -8,6 +8,7 @@ namespace Assignment3.Models
         public string ModuleCode { get; set; }
         public string ModuleDesc { get; set; }
         public Course Course { get; set; }
+        public List<Student> Students { get; set; }
 
         /*
         public static List<Module> Modules =>
