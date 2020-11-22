@@ -48,15 +48,12 @@
         <tr>
             <td> <input type="checkbox" id="selectStud" name="selectStud"> </td>
 
-            <td> <input type="text" id="studentName" name="studentName" form="registerResults" /></td>
+            <td> 
+                <input type="text" id="studentName" name="studentName" form="displayResults" disabled />  
+            </td>
 
             <td>
-                <select id="gradeCanvas" name="gradeCanvas" form="registerResults">
-                    <option value="failed">U</option>
-                    <option value="approvedGroup">G#</option>
-                    <option value="approved">G</option>
-                    <option value="wellApproved">VG</option>
-                </select>
+                <input type="text" id="gradeCanvas" name="gradeCanvas" form="displayResults" disabled />
             </td>
 
             <td> <input type="date" id="examineDate" name="examineDate" min="2020-11-16" max="2040-12-31"> </td>

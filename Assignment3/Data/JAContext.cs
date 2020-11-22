@@ -18,7 +18,7 @@ namespace Assignment3.Data
         public DbSet<Models.Module> Modules { get; set; }
         public DbSet<Models.Ladok> LadokDb { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) // kolla upp - watch out
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Models.Student>().ToTable("Students");
             modelBuilder.Entity<Models.Course>(e =>

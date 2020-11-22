@@ -22,7 +22,14 @@ $('#courseSelect').on('change', function () {
         var modules = data.split(";");
 
         for (i = 0; i < modules.length; i++) {
-            $('#moduleSelect').append("<option>" + modules[i] + "</option>");
+
+            var option = document.createElement("option");
+
+            var values = modules[i].split("|");
+            option.value = values[0];
+            option.text = values[0] + ' - ' + values[1];
+
+            $('#moduleSelect').append(option);
         }
     });
 
@@ -35,7 +42,7 @@ function readInStudents() {
     var course = e.options[e.selectedIndex].text;
 
     var moduleDropdown = document.getElementById("moduleSelect");
-    var module = moduleDropdown.options[moduleDropdown.selectedIndex].text;
+    var module = moduleDropdown.options[moduleDropdown.selectedIndex].value;
 
     $.ajax({
         url: "http://localhost:51526/api/GetStudentsOnCourse/" + course + "/" + module
