@@ -19,16 +19,10 @@ $('#courseSelect').on('change', function () {
 
     }).then(function (data) {
 
-        for (i = 0; i < data.length; i++) {
-            $('#moduleSelect').append("<option>" + data + "</option>");
+        var modules = data.split(";");
 
+        for (i = 0; i < modules.length; i++) {
+            $('#moduleSelect').append("<option>" + modules[i] + "</option>");
         }
-
-
     });
 });
-
-
-  
-
-

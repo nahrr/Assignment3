@@ -32,9 +32,9 @@ namespace Assignment3.Controllers
                 .FirstOrDefault(x => x.CourseCode == courseCode);
 
 
-            //return $"Modul: {string.Join(", ", course.Modules.Select(x => $"{x.ModuleCode}").ToArray())}";
+            return $"{string.Join(";", course.Modules.Select(x => $"{x.ModuleCode} - {x.ModuleDesc}").ToArray())}";
 
-            return $"Kursid: {course.CourseId} Kursnamn: {course.CourseName} Kurskod: {course.CourseCode} Modul: {string.Join(", ", course.Modules.Select(x => $"{x.ModuleCode}").ToArray())}";
+            //return $"Kursid: {course.CourseId} Kursnamn: {course.CourseName} Kurskod: {course.CourseCode} Modul: {string.Join(", ", course.Modules.Select(x => $"{x.ModuleCode}").ToArray())}";
         }
 
     }
