@@ -11,21 +11,20 @@
     <div id="chooseCourse">
 
         <label for="courseSelect">Kurskod</label>
-        <select id="courseSelect" name="course">
-            <option>Välj kurs</option>
+        <select id="courseSelect" name="course" onchange="site.js">
+            <option>----</option>
 
             @{ var courses = Course.MadeUpCourses;
                 @foreach (var c in courses)
                 {
-                   <option value="@c.CourseCode"> @c.CourseCode @c.CourseName </option>
+                    <option> @c.CourseCode </option>
                 }
-             }
+            }
 
         </select>
 
-        <select id="modulSelect name="modul">
-            <option value=""> Välj modul </option>
-
+        <select id="moduleSelect" name="modul">
+            <option>----</option>
 
         </select>
 

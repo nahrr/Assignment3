@@ -4,18 +4,29 @@
 // Write your JavaScript code.
 
 
-$(document).ready(function () {
+$('#courseSelect').on('change', function () {
 
 
-    $.get('GetList', function (data) {
-        console.log(data)
-        $.each(data, function (index, value) {
-            console.log(index + value)
-            $('<option>').val(value).text(value).appendTo("#courseSelect");
-            })
-    })
-})
 
+    var e = document.getElementById("courseSelect")
+    var result = e.options[e.selectedIndex].text;
+
+    //alert(result); //För testning
+    $('#moduleSelect').empty();
+    $.ajax({
+        // url: "http://localhost:51526/api/epok/X0002X"
+        url: "http://localhost:51526/api/epok/" + result
+
+    }).then(function (data) {
+
+        for (i = 0; i < data.length; i++) {
+            $('#moduleSelect').append("<option>" + data + "</option>");
+
+        }
+
+
+    });
+});
 
 
   
