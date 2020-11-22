@@ -29,6 +29,7 @@ namespace Assignment3.Models
 
         public List<Course> Courses { get; set; }
 
+         /*
         public static List<Student> MadeUpStudents =>
                   new List<Student>
                   {
@@ -48,13 +49,7 @@ namespace Assignment3.Models
                     CourseCode = "D0032X"
                     },
 
-                    new Student {
-                    FirstName = "Alfa",
-                    LastName = "Beta",
-                    Ssn = "817171-2222",
-                    StudentId = "alfbet-1",
-                    CourseCode = "D0032X"
-                    },
+
 
                     new Student {
                     FirstName = "Gamma",
@@ -79,7 +74,7 @@ namespace Assignment3.Models
                     StudentId = "epsgam-4",
                     CourseCode = "X0002X"
                     }
-      };
+      };*/
 
     }
 }

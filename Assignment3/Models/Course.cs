@@ -14,11 +14,10 @@ namespace Assignment3.Models
         public List<Module> Modules { get; set; }
 
         public static List<Course> MadeUpCourses =>
-                    new List<Course>
-                    {
+            new List<Course>
+            {
                 new Course
                 {
-
                     CourseCode = "D0032X",
                     CourseName = "Testkurs",
                     Modules = new List<Module>
@@ -48,27 +47,125 @@ namespace Assignment3.Models
                                     StudentId = "muspig-1",
                                     CourseCode = "D0032X",
                                     GradeCanvas = "VG"
+                                },
+
+                                new Student {
+                                    FirstName = "Alfa",
+                                    LastName = "Beta",
+                                    Ssn = "817171-2222",
+                                    StudentId = "alfbet-1",
+                                    CourseCode = "D0032X",
+                                    GradeCanvas = "VG"
+                                },
+
+                                 new Student {
+                                    FirstName = "Gamma",
+                                    LastName = "Beta",
+                                    Ssn = "812172-2222",
+                                    StudentId = "gambet-1",
+                                    CourseCode = "D0032X",
+                                    GradeCanvas = "VG"
                                 }
-                            }
+
+                            },
                         },
                         new Module
                         {
                             //ModuleId = 2,
                             ModuleCode = "006",
-                            ModuleDesc = "Tentamen"
+                            ModuleDesc = "Tentamen",
+                            Students = new List<Student>
+                            {
+                               new Student {
+
+                                    FirstName = "Kalle",
+                                    LastName = "Anka",
+                                    Ssn = "801010-1111",
+                                    StudentId = "kalank-1",
+                                    CourseCode = "D0032X",
+                                    GradeCanvas = "G"
+                                },
+
+                                new Student {
+
+                                    FirstName = "Musse",
+                                    LastName = "Pigg",
+                                    Ssn = "838383-2222",
+                                    StudentId = "muspig-1",
+                                    CourseCode = "D0032X",
+                                    GradeCanvas = "VG"
+                                },
+
+                                new Student {
+                                    FirstName = "Alfa",
+                                    LastName = "Beta",
+                                    Ssn = "817171-2222",
+                                    StudentId = "alfbet-1",
+                                    CourseCode = "D0032X",
+                                    GradeCanvas = "VG"
+                                },
+
+                                 new Student {
+                                    FirstName = "Gamma",
+                                    LastName = "Beta",
+                                    Ssn = "812172-2222",
+                                    StudentId = "gambet-1",
+                                    CourseCode = "D0032X",
+                                    GradeCanvas = "VG"
+                                }
+                            }
                         },
                         new Module
                         {
                             //ModuleId = 3,
                             ModuleCode = "001",
-                            ModuleDesc = "Tentamen"
+                            ModuleDesc = "Projekt",
+                            Students = new List<Student>
+                            {
+                                 new Student {
+
+                                    FirstName = "Kalle",
+                                    LastName = "Anka",
+                                    Ssn = "801010-1111",
+                                    StudentId = "kalank-1",
+                                    CourseCode = "D0032X",
+                                    GradeCanvas = "G"
+                                },
+
+                                new Student {
+
+                                    FirstName = "Musse",
+                                    LastName = "Pigg",
+                                    Ssn = "838383-2222",
+                                    StudentId = "muspig-1",
+                                    CourseCode = "D0032X",
+                                    GradeCanvas = "VG"
+                                },
+
+                                new Student {
+                                    FirstName = "Alfa",
+                                    LastName = "Beta",
+                                    Ssn = "817171-2222",
+                                    StudentId = "alfbet-1",
+                                    CourseCode = "D0032X",
+                                    GradeCanvas = "VG"
+                                },
+
+                                 new Student {
+                                    FirstName = "Gamma",
+                                    LastName = "Beta",
+                                    Ssn = "812172-2222",
+                                    StudentId = "gambet-1",
+                                    CourseCode = "D0032X",
+                                    GradeCanvas = "VG"
+                                }
+                            }
                         }
                     }
                 },
 
                 new Course
                 {
-
                     CourseCode = "X0002X",
                     CourseName = "Testkurs2",
                     Modules = new List<Module>
@@ -77,13 +174,49 @@ namespace Assignment3.Models
                         {
                             //ModuleId = 1,
                             ModuleCode = "005",
-                            ModuleDesc = "Inlämningsuppgifter"
+                            ModuleDesc = "Inlämningsuppgifter",
+                            Students = new List<Student>
+                            {
+                                new Student {
+                                    FirstName = "Epsilon",
+                                    LastName = "Zeta",
+                                    Ssn = "222222-2222",
+                                    StudentId = "epszet-3",
+                                    CourseCode = "X0002X"
+                                    },
+
+                                    new Student {
+                                    FirstName = "Epsilon",
+                                    LastName = "Gamma",
+                                    Ssn = "3333333-3333",
+                                    StudentId = "epsgam-4",
+                                    CourseCode = "X0002X"
+                                    }
+                            }
                         },
                         new Module
                         {
                             //ModuleId = 2,
                             ModuleCode = "006",
-                            ModuleDesc = "Tentamen"
+                            ModuleDesc = "Tentamen",
+                            Students = new List<Student>
+                            {
+                                new Student {
+                                    FirstName = "Epsilon",
+                                    LastName = "Zeta",
+                                    Ssn = "222222-2222",
+                                    StudentId = "epszet-3",
+                                    CourseCode = "X0002X"
+                                    },
+
+                                    new Student {
+                                    FirstName = "Epsilon",
+                                    LastName = "Gamma",
+                                    Ssn = "3333333-3333",
+                                    StudentId = "epsgam-4",
+                                    CourseCode = "X0002X"
+                    }
+                            }
                         }
                     }
                 }
