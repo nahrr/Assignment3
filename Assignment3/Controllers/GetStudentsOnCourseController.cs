@@ -29,7 +29,7 @@ namespace Assignment3.Controllers
                .Where(s => s.CourseCode.Equals(courseCode) && s.CourseModule.Equals(moduleCode))
                .ToList();
 
-            return $"{string.Join(";", students.Select(x => $"{x.FirstName} {x.LastName}|{x.GradeCanvas}").ToArray())}";
+            return $"{string.Join(";", students.Select(x => $"{x.FirstName} {x.LastName}|{x.GradeCanvas}|{x.StudentId}").ToArray())}";
         }
     }
 }

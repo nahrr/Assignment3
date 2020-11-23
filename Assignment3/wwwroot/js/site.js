@@ -56,8 +56,9 @@ function getStudents() {
             var object = array[i].split("|");
             var name = object[0];
             var grade = object[1];
-            var student = { "name": name, "grade": grade}
-            console.log(student)
+            var studentId = object[2];
+            var student = { "name": name, "grade": grade, "studentId": studentId}
+           // console.log(student)
             correctArray.push(student)
             console.log(correctArray)
         }
@@ -72,14 +73,15 @@ function getStudents() {
                 var row = `<tr>      
 
                                     <td> <input type="checkbox" id="selectStud${i}"> </td>
+                                    <td><span id="studentId${i}">${data[i].studentId}</span></td>
 							        <td><span id="name${i}">${data[i].name}</span></td>
 							        <td><span id="grade${i}">${data[i].grade}</span></td>
                                     <td> <input type="date" id="examineDate${i}" min="2020-11-16" max="2040-12-31"> </td>
-                                    <td> <select id="gradeLadok${i}"  form="registerResults">
-                                        <option value="failed">U</option>
-                                        <option value="approvedGroup">G#</option>
-                                        <option value="approved">G</option>
-                                        <option value="wellApproved">VG</option>
+                                    <td> <select id="gradeLadok${i}">
+                                        <option value="U">U</option>
+                                        <option value="G#">G#</option>
+                                        <option value="G">G</option>
+                                        <option value="VG">VG</option>
                                         </select></td>
                                     <td> <input type="text" id="status${i}"/></td>
                                     <td> <input type="text" id="information${i}"/></td>
@@ -96,9 +98,49 @@ function getStudents() {
 
 function setStudents() {
 
-    //Försök få ut data från alla rader, identfiera vilka rader, kolla checkboxar som är kryssade via ID 
-   // $.ajax({
-     //   url: "http://localhost:51526/api/Ladok/" + course + "/" + module
 
+    var table = document.getElementById('myTable')
+    for (var i = 0; i < table.rows.length; i++) {
+
+        
+        var check = document.getElementById("selectStud"+i).checked;
+        if (check) {
+            var gradeLadok = document.getElementById("gradeLadok" + i).value;
+            //table.rows[i].cells[5].selectedIndex;
+            
+            console.log(gradeLadok)
+            var studentId = table.rows[i].cells[1].firstChild.innerHTML;
+            console.log(studentId)
+            
+            $.ajax({
+                url: "http://localhost:51526/api/StudentITS/" + studentId
+            }).then(function (data) {
+                //return data;
+                var studentSsn = data;
+                console.log(studentSsn);
+                //- request: personnummer, kurskod, modul, datum och betyg
+                // - response: status ex.ok eller lista med studentanvändare som inte kunde
+                //registreras mot angiven modul. 
+                // var grade = document.getElementById("gradeLadok" + i);
+                /// StudentID	Namn	Betyg Canvas	Examinationsdatum	Betyg i Ladok	Status	Information
+              
+
+                
+                
+            });
+
+           
+       
+           
+        }
+     
+    }
+    
+    
+   
 }
+
+
+    
+
 

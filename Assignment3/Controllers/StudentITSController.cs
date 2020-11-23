@@ -33,7 +33,7 @@ namespace Assignment3.Controllers
                 //.Include(x => x.StudentId)
                 .FirstOrDefault(x => x.StudentId == studentId);
 
-            return $"Personnummer: {student.Ssn}";
+            return $"{student.Ssn}";
         }
 
 
