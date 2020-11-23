@@ -10,6 +10,12 @@ $('#courseSelect').on('change', function () {
     var result = e.options[e.selectedIndex].text;
 
     $('#moduleSelect').empty();
+
+    if (result === "Välj kurs")
+    {
+        return;
+    }
+
     $.ajax({
         url: "http://localhost:51526/api/epok/" + result
 
@@ -38,8 +44,11 @@ function getStudents() {
     var e = document.getElementById("courseSelect");
     var course = e.options[e.selectedIndex].text;
 
+    
     var moduleDropdown = document.getElementById("moduleSelect");
     var module = moduleDropdown.options[moduleDropdown.selectedIndex].value;
+
+    if (module == null) return;
 
     $.ajax({
         url: "http://localhost:51526/api/GetStudentsOnCourse/" + course + "/" + module
@@ -67,36 +76,34 @@ function getStudents() {
 
             for (var i = 0; i < data.length; i++) {
                 var row = `<tr>      
-
-                                    <td> <input type="checkbox" id="selectStud${i}"> </td>
-                                    <td><span id="studentId${i}">${data[i].studentId}</span></td>
-							        <td><span id="name${i}">${data[i].name}</span></td>
-							        <td><span id="grade${i}">${data[i].grade}</span></td>
-                                    <td> <input type="date" id="examineDate${i}" min="2020-11-16" max="2040-12-31"> </td>
-                                    <td> <select id="gradeLadok${i}">
+                                <td> <input type="checkbox" id="selectStud${i}"> </td>
+                                <td><span id="studentId${i}">${data[i].studentId}</span></td>
+							    <td><span id="name${i}">${data[i].name}</span></td>
+							    <td><span id="grade${i}">${data[i].grade}</span></td>
+                                <td> <input type="date" id="examineDate${i}" min="2020-11-16" max="2040-12-31" required></td>
+                                <td>
+                                    <select id="gradeLadok${i}">
                                         <option value="U">U</option>
                                         <option value="G#">G#</option>
                                         <option value="G">G</option>
                                         <option value="VG">VG</option>
-                                        </select></td>
-                                    <td> <input type="text" id="status${i}"/></td>
-                                    <td> <input type="text" id="information${i}"/></td>
-							       
-					          </tr>`;
+                                    </select>
+                                </td>
+					        </tr>`;
+
                 table.innerHTML += row;
             }
-
         }
     });
-
-    
 }
 
 function setStudents() {
 
-
+   
     var course = document.getElementById("courseSelect").value;
     var module = document.getElementById("moduleSelect").value;
+
+    if (module == null) return;
 
     var table = document.getElementById('myTable')
     for (var i = 0; i < table.rows.length; i++) {
@@ -106,6 +113,11 @@ function setStudents() {
         if (check) {
             var gradeToLadok = document.getElementById("gradeLadok" + i).value;
             var date = document.getElementById("examineDate" + i).value;
+           
+            if (!date) {
+                alert("Välj datum för rad " + (i+1));
+                continue;
+            }
 
             console.log(date);
             console.log(gradeToLadok);
@@ -126,39 +138,15 @@ function setStudents() {
             function successCallback(responseObj) {
                 // Do something like read the response and show data
                 console.log(responseObj);
-                alert(JSON.stringify(responseObj)); // Only applicable to JSON response
+               // alert(JSON.stringify(responseObj)); // Only applicable to JSON response
                var studentssn = responseObj;
                 $.ajax({
                     url: "http://localhost:51526/api/ladok/" + studentssn + "/" + gradeToLadok + "/" + module + "/" + date + "/" + course
+                }).then(function (data) {
+                    alert(data);
+                   
                 });
             }
-
-              
-
-            //function mycallback(result) {
-            //    $.ajax({
-            //        url: "http://localhost:51526/api/studentits/" + studentid
-            //        success: callback
-            //    });
-            //}
-
-            //foo(mycallback);
-
-
-            //$.ajax({
-            //    url: "http://localhost:51526/api/studentits/" + studentid
-            //}).then(function (data) {
-            //   var studentssn = data;
-            //   console.log(studentssn);    
-            //});   
-            ////public string registerresult(string ssn, string grade, string module, datetime date, string coursecode)
-            //$.ajax({
-            //    url: "http://localhost:51526/api/ladok/" + studentssn + "/" + grade + "/" + module + "/" + date + "/" + course
-            //}).then(function (data) {
-            //    var studentssn = data;
-            //    console.log(studentssn);
-            //});   
-
         }   
     }  
 }

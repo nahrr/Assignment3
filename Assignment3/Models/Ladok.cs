@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Assignment3.Models
 {
@@ -12,7 +14,9 @@ namespace Assignment3.Models
         public string Module { get; set; }
         public DateTime Date { get; set; }
         public string Grade { get; set; }
-        public string LadokId { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+         public int LadokId { get; set; }
 
         //public List<Ladok> LadokPosts { get; set; }
 

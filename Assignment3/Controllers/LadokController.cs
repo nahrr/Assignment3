@@ -21,18 +21,18 @@ namespace Assignment3.Controllers
         }
 
         [Route("{studentSsn}/{gradeToLadok}/{module}/{date}/{course}")]
-   
+
         [HttpGet]
-        public string RegisterResult(string ssn, string grade, string module, DateTime date, string courseCode)
+        public string RegisterResult(string studentssn, string gradeToLadok, string module, DateTime date, string course)
         {
             var results = _context
                 .LadokDb
-                .Where(x => x.Ssn == ssn);
+                .Where(x => x.Ssn == studentssn);
 
             var alreadyExists = false;
             foreach (var r in results)
             {
-                if (r.Ssn.Equals(ssn) && r.Module.Equals(module) && r.CourseCode.Equals(courseCode))
+                if (r.Ssn.Equals(studentssn) && r.Module.Equals(module) && r.CourseCode.Equals(course))
                 {
                     alreadyExists = true;
 
@@ -44,11 +44,12 @@ namespace Assignment3.Controllers
             {
                 var dbEntry = new Models.Ladok()
                 {
-                    Ssn = ssn,
-                    Grade = grade,
+                    
+                    Ssn = studentssn,
+                    Grade = gradeToLadok,
                     Module = module,
                     Date = date,
-                    CourseCode = courseCode
+                    CourseCode = course
                 };
                 _context.Add(dbEntry);
                 _context.SaveChanges();

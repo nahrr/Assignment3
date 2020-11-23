@@ -12,7 +12,7 @@ td {
     text-align: center;
 }
 
-tr:nth-child(even) {
+:nth-child(even) {
     background-color: #eee;
 }
 

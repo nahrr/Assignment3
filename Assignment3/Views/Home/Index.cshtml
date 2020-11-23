@@ -4,15 +4,13 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
-
 <body>
     <!--Välj kurs och modul, vet ej hur det ska läsas in-->
     <div id="chooseCourse">
 
         <label for="courseSelect">Kurskod</label>
         <select id="courseSelect" name="course">
-            <option value="crs" disabled>Välj kurs</option>
+            <option value="crs" >Välj kurs</option>
 
             @{ var courses = Course.MadeUpCourses;
                 @foreach (var c in courses)
@@ -30,9 +28,7 @@
         <button class="buttonGetStudents" id="getStudentsBtn" type="button" onclick="getStudents()">Hämta studenter</button>
 
     </div>
-
     
-
         <table class="table table-striped">
             <tr class="bg-info">
                 <th></th>
@@ -41,18 +37,11 @@
                 <th>Betyg Canvas</th>
                 <th>Examinationsdatum</th>
                 <th>Betyg i Ladok</th>
-                <th>Status</th>
-                <th>Information</th>
             </tr>
-
             <tbody id="myTable">
             </tbody>
         </table>
-
         <button class="buttonRegister" type="button" onclick="setStudents()">Registrera resultat</button>
-    
-
         
-
 </body>
 
