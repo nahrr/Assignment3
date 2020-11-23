@@ -130,7 +130,8 @@ function setStudents() {
                 }
             });
 
-            // API-anrop till Ladok - Tar personnummer, betyg, modul, datum och kurs och sparar detta som en post i "Ladokdatabasen".
+            // API-anrop till Ladok - Tar personnummer, betyg, modul, datum och kurs och sparar detta som en post i "Ladokdatabasen". Returnerar att resultatet är sparat
+            // om allt går som det ska, om studenten redan existerar för aktuell modul meddelas detta.
             function successCallback(responseObj) {
                //console.log(responseObj);
                var studentssn = responseObj;
