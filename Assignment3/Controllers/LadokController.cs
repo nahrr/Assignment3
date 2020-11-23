@@ -20,7 +20,7 @@ namespace Assignment3.Controllers
             this._context = context;
         }
 
-        [Route("{regResult}")]
+        [Route("{studentSsn}/{gradeToLadok}/{module}/{date}/{course}")]
    
         [HttpGet]
         public string RegisterResult(string ssn, string grade, string module, DateTime date, string courseCode)

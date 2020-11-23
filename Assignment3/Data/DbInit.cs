@@ -33,6 +33,7 @@ namespace Assignment3.Data
 
             context.Courses.AddRange(Course.MadeUpCourses);
             context.Students.AddRange(Student.MadeUpStudents);
+            //context.LadokDb.AddRange(Ladok.LadokPosts);
             //context.Modules.AddRange(Module.Modules);
 
             context.SaveChanges();

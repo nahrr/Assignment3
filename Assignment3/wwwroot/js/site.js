@@ -6,15 +6,11 @@
 
 $('#courseSelect').on('change', function () {
 
-
-
     var e = document.getElementById("courseSelect")
     var result = e.options[e.selectedIndex].text;
 
-    //alert(result); //För testning
     $('#moduleSelect').empty();
     $.ajax({
-        // url: "http://localhost:51526/api/epok/X0002X"
         url: "http://localhost:51526/api/epok/" + result
 
     }).then(function (data) {
@@ -99,45 +95,57 @@ function getStudents() {
 function setStudents() {
 
 
+    var course = document.getElementById("courseSelect").value;
+    var module = document.getElementById("moduleSelect").value;
+
     var table = document.getElementById('myTable')
     for (var i = 0; i < table.rows.length; i++) {
 
         
         var check = document.getElementById("selectStud"+i).checked;
         if (check) {
-            var gradeLadok = document.getElementById("gradeLadok" + i).value;
-            //table.rows[i].cells[5].selectedIndex;
-            
-            console.log(gradeLadok)
+            var gradeToLadok = document.getElementById("gradeLadok" + i).value;
+            var date = document.getElementById("examineDate" + i).value;
+
+            console.log(date);
+            console.log(gradeToLadok);
+            console.log(module);
+            console.log(course);
             var studentId = table.rows[i].cells[1].firstChild.innerHTML;
-            console.log(studentId)
+            console.log(studentId);
             
-            $.ajax({
-                url: "http://localhost:51526/api/StudentITS/" + studentId
-            }).then(function (data) {
-                //return data;
-                var studentSsn = data;
-                console.log(studentSsn);
-                //- request: personnummer, kurskod, modul, datum och betyg
-                // - response: status ex.ok eller lista med studentanvändare som inte kunde
-                //registreras mot angiven modul. 
-                // var grade = document.getElementById("gradeLadok" + i);
-                /// StudentID	Namn	Betyg Canvas	Examinationsdatum	Betyg i Ladok	Status	Information
-              
+            //function foo(callback) {
+            //   $.ajax({
+            //   url: "http://localhost:51526/api/Ladok/" + studentSsn + "/" + grade + "/" + module + "/" + date + "/" + course
+            //   })
+            //}
 
-                
-                
-            });
+            //function myCallback(result) {
+            //    $.ajax({
+            //        url: "http://localhost:51526/api/StudentITS/" + studentId
+            //        success: callback
+            //    });
+            //}
 
-           
-       
-           
-        }
-     
-    }
-    
-    
-   
+            //foo(myCallback);
+
+
+            //$.ajax({
+            //    url: "http://localhost:51526/api/StudentITS/" + studentId
+            //}).then(function (data) {
+            //   var studentSsn = data;
+            //   console.log(studentSsn);    
+            //});   
+            ////public string RegisterResult(string ssn, string grade, string module, DateTime date, string courseCode)
+            //$.ajax({
+            //    url: "http://localhost:51526/api/Ladok/" + studentSsn + "/" + grade + "/" + module + "/" + date + "/" + course
+            //}).then(function (data) {
+            //    var studentSsn = data;
+            //    console.log(studentSsn);
+            //});   
+
+        }   
+    }  
 }
 
 
