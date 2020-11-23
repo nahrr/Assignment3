@@ -6,6 +6,7 @@ using Assignment3.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace Assignment3.Controllers
 {
@@ -32,8 +33,10 @@ namespace Assignment3.Controllers
                 .Students
                 //.Include(x => x.StudentId)
                 .FirstOrDefault(x => x.StudentId == studentId);
-
+            // string ett = student.Ssn.ToString();
+            // string s = JsonConvert.SerializeObject(student.Ssn);
             return $"{student.Ssn}";
+
         }
 
 

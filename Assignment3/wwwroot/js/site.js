@@ -113,35 +113,50 @@ function setStudents() {
             console.log(course);
             var studentId = table.rows[i].cells[1].firstChild.innerHTML;
             console.log(studentId);
-            
-            //function foo(callback) {
-            //   $.ajax({
-            //   url: "http://localhost:51526/api/Ladok/" + studentSsn + "/" + grade + "/" + module + "/" + date + "/" + course
-            //   })
-            //}
 
-            //function myCallback(result) {
+
+            var getSsn = $.ajax({
+                url: "http://localhost:51526/api/studentits/" + studentId,
+                success: function (response) {
+
+                    successCallback(response);
+                }
+            });
+
+            function successCallback(responseObj) {
+                // Do something like read the response and show data
+                console.log(responseObj);
+                alert(JSON.stringify(responseObj)); // Only applicable to JSON response
+               var studentssn = responseObj;
+                $.ajax({
+                    url: "http://localhost:51526/api/ladok/" + studentssn + "/" + gradeToLadok + "/" + module + "/" + date + "/" + course
+                });
+            }
+
+              
+
+            //function mycallback(result) {
             //    $.ajax({
-            //        url: "http://localhost:51526/api/StudentITS/" + studentId
+            //        url: "http://localhost:51526/api/studentits/" + studentid
             //        success: callback
             //    });
             //}
 
-            //foo(myCallback);
+            //foo(mycallback);
 
 
             //$.ajax({
-            //    url: "http://localhost:51526/api/StudentITS/" + studentId
+            //    url: "http://localhost:51526/api/studentits/" + studentid
             //}).then(function (data) {
-            //   var studentSsn = data;
-            //   console.log(studentSsn);    
+            //   var studentssn = data;
+            //   console.log(studentssn);    
             //});   
-            ////public string RegisterResult(string ssn, string grade, string module, DateTime date, string courseCode)
+            ////public string registerresult(string ssn, string grade, string module, datetime date, string coursecode)
             //$.ajax({
-            //    url: "http://localhost:51526/api/Ladok/" + studentSsn + "/" + grade + "/" + module + "/" + date + "/" + course
+            //    url: "http://localhost:51526/api/ladok/" + studentssn + "/" + grade + "/" + module + "/" + date + "/" + course
             //}).then(function (data) {
-            //    var studentSsn = data;
-            //    console.log(studentSsn);
+            //    var studentssn = data;
+            //    console.log(studentssn);
             //});   
 
         }   
