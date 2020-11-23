@@ -32,51 +32,22 @@
     </div>
 
 
-    <!--Tabell med rubriker och rader-->
-    <table id="maintable">
-
-        <tr>
-            <th></th>
+    <table class="table table-striped">
+        <tr class="bg-info">
             <th>Namn</th>
-            <th>Omdöme i Canvas</th>
+            <th>Betyg Canvas</th>
             <th>Examinationsdatum</th>
             <th>Betyg i Ladok</th>
             <th>Status</th>
             <th>Information</th>
         </tr>
 
-        <tr>
-            <td> <input type="checkbox" id="selectStud" name="selectStud"> </td>
-
-            <td> 
-                <input type="text" id="studentName" name="studentName" form="displayResults" disabled />  
-            </td>
-
-            <td>
-                <input type="text" id="gradeCanvas" name="gradeCanvas" form="displayResults" disabled />
-            </td>
-
-            <td> <input type="date" id="examineDate" name="examineDate" min="2020-11-16" max="2040-12-31"> </td>
-
-            <td>
-                <select id="gradeLadok" name="gradeLadok" form="registerResults">
-                    <option value="failed">U</option>
-                    <option value="approvedGroup">G#</option>
-                    <option value="approved">G</option>
-                    <option value="wellApproved">VG</option>
-                </select>
-            </td>
-
-            <td> <input type="text" form="registerResults" /></td>
-
-            <td> <input type="text" form="registerResults" /></td>
-        </tr>
-        <tbody></tbody>
+        <tbody id="myTable">
+        </tbody>
     </table>
 
-  
 
-    <button class="buttonRegister" type="button" > Registrera resultat</button>
+    <button class="buttonRegister" type="button" onclick="readInStudents2()"> Registrera resultat</button>
 
 </body>
 

@@ -36,6 +36,7 @@ $('#courseSelect').on('change', function () {
 });
 
 
+
 function readInStudents() {
 
     var e = document.getElementById("courseSelect");
@@ -47,55 +48,48 @@ function readInStudents() {
     $.ajax({
         url: "http://localhost:51526/api/GetStudentsOnCourse/" + course + "/" + module
     }).then(function (data) {
-
-        var count = data.split("|").length;
-        alert(count)
- 
-        for (i = 0; i < count-1; i++) {
-            var html = $(`<tr>
-        <td> <input type="checkbox" id="selectStud" name="selectStud"> </td>
-
-        <td> <input type="text" id="studentName" name="studentName" form="registerResults" /></td>
-
-        <td> <select id="gradeCanvas" name="gradeCanvas" form="registerResults">
-                <option value="failed">U</option>
-                <option value="approvedGroup">G#</option>
-                <option value="approved">G</option>
-                <option value="wellApproved">VG</option>
-            </select> </td>
-
-        <td> <input type="date" id="examineDate" name="examineDate" min="2020-11-16" max="2040-12-31"> </td>
-
-        <td> <select id="gradeLadok" name="gradeLadok" form="registerResults">
-                <option value="failed">U</option>
-                <option value="approvedGroup">G#</option>
-                <option value="approved">G</option>
-                <option value="wellApproved">VG</option>
-            </select> </td>
-
-        <td> <input type="text" form="registerResults" /></td>
-
-        <td> <input type="text" form="registerResults" /></td>
-    </tr>`);
-            $('table#maintable').append(html);
+        $('#myTable').empty();
+         var array = data.split(";");
+      ///   var array = data.split("|");
+        var correctArray = []
+        for (var i = 0; i < array.length; i++) {
+            var object = array[i].split("|");
+            var name = object[0];
+            var grade = object[1];
+            var student = { "name": name, "grade": grade}
+            console.log(student)
+            correctArray.push(student)
+            console.log(correctArray)
         }
+
+     
+        buildTable(correctArray)
         
-        var students = data.split(";");
-        alert(students)
-        for (i = 0; i < students.length; i++) {
+        function buildTable(data) {
+            var table = document.getElementById('myTable')
+            
+            for (var i = 0; i < data.length; i++) {
+                var row = `<tr>
+							        <td>${data[i].name}</td>
+							        <td>${data[i].grade}</td>
+                                    <td> <input type="date" id="examineDate" name="examineDate" min="2020-11-16" max="2040-12-31"> </td>
+                                    <td> <select id="gradeLadok" name="gradeLadok" form="registerResults">
+                                        <option value="failed">U</option>
+                                        <option value="approvedGroup">G#</option>
+                                        <option value="approved">G</option>
+                                        <option value="wellApproved">VG</option>
+                                        </select></td>
+                                    <td> <input type="text"  /></td>
+                                    <td> <input type="text" /></td>
+							       
+					          </tr>`
+                table.innerHTML += row
 
 
+            }
 
-            var fields = students[i].split("|");
-
-            document.getElementById("studentName").value = fields[0];
         }
     });
-}
-
-function buildTable() {
-
- 
-
 
 }
+
