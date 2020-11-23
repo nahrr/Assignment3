@@ -21,6 +21,7 @@ namespace Assignment3.Controllers
         }
 
         [Route("{regResult}")]
+   
         [HttpGet]
         public string RegisterResult(string ssn, string grade, string module, DateTime date, string courseCode)
         {

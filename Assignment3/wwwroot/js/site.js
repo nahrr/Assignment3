@@ -37,7 +37,7 @@ $('#courseSelect').on('change', function () {
 
 
 
-function readInStudents() {
+function getStudents() {
 
     var e = document.getElementById("courseSelect");
     var course = e.options[e.selectedIndex].text;
@@ -67,29 +67,38 @@ function readInStudents() {
         
         function buildTable(data) {
             var table = document.getElementById('myTable')
-            
+
             for (var i = 0; i < data.length; i++) {
-                var row = `<tr>
-							        <td>${data[i].name}</td>
-							        <td>${data[i].grade}</td>
-                                    <td> <input type="date" id="examineDate" name="examineDate" min="2020-11-16" max="2040-12-31"> </td>
-                                    <td> <select id="gradeLadok" name="gradeLadok" form="registerResults">
+                var row = `<tr>      
+
+                                    <td> <input type="checkbox" id="selectStud${i}"> </td>
+							        <td><span id="name${i}">${data[i].name}</span></td>
+							        <td><span id="grade${i}">${data[i].grade}</span></td>
+                                    <td> <input type="date" id="examineDate${i}" min="2020-11-16" max="2040-12-31"> </td>
+                                    <td> <select id="gradeLadok${i}"  form="registerResults">
                                         <option value="failed">U</option>
                                         <option value="approvedGroup">G#</option>
                                         <option value="approved">G</option>
                                         <option value="wellApproved">VG</option>
                                         </select></td>
-                                    <td> <input type="text"  /></td>
-                                    <td> <input type="text" /></td>
+                                    <td> <input type="text" id="status${i}"/></td>
+                                    <td> <input type="text" id="information${i}"/></td>
 							       
-					          </tr>`
-                table.innerHTML += row
-
-
+					          </tr>`;
+                table.innerHTML += row;
             }
 
         }
     });
+
+    
+}
+
+function setStudents() {
+
+    //Försök få ut data från alla rader, identfiera vilka rader, kolla checkboxar som är kryssade via ID 
+   // $.ajax({
+     //   url: "http://localhost:51526/api/Ladok/" + course + "/" + module
 
 }
 

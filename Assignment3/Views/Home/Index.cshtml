@@ -11,7 +11,7 @@
     <div id="chooseCourse">
 
         <label for="courseSelect">Kurskod</label>
-        <select id="courseSelect" name="course" onchange="site.js">
+        <select id="courseSelect" name="course">
             <option value="crs" disabled>Välj kurs</option>
 
             @{ var courses = Course.MadeUpCourses;
@@ -27,27 +27,31 @@
             <option>-------</option>
 
         </select>
-        <button class="buttonGetStudents" id="getStudentsBtn" type="button" onclick="readInStudents()">Hämta studenter</button>
+        <button class="buttonGetStudents" id="getStudentsBtn" type="button" onclick="getStudents()">Hämta studenter</button>
 
     </div>
 
+    
 
-    <table class="table table-striped">
-        <tr class="bg-info">
-            <th>Namn</th>
-            <th>Betyg Canvas</th>
-            <th>Examinationsdatum</th>
-            <th>Betyg i Ladok</th>
-            <th>Status</th>
-            <th>Information</th>
-        </tr>
+        <table class="table table-striped">
+            <tr class="bg-info">
+                <th></th>
+                <th>Namn</th>
+                <th>Betyg Canvas</th>
+                <th>Examinationsdatum</th>
+                <th>Betyg i Ladok</th>
+                <th>Status</th>
+                <th>Information</th>
+            </tr>
 
-        <tbody id="myTable">
-        </tbody>
-    </table>
+            <tbody id="myTable">
+            </tbody>
+        </table>
 
+        <button class="buttonRegister" type="button" onclick="setStudents()">Registrera resultat</button>
+    
 
-    <button class="buttonRegister" type="button" onclick="readInStudents2()"> Registrera resultat</button>
+        
 
 </body>
 
