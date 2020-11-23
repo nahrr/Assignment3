@@ -9,6 +9,7 @@ namespace Assignment3.Models
 {
     public class Ladok
     {
+        // Properties för simulerad Ladok
         public string Ssn { get; set; }
         public string CourseCode { get; set; }
         public string Module { get; set; }
@@ -16,9 +17,7 @@ namespace Assignment3.Models
         public string Grade { get; set; }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-         public int LadokId { get; set; }
-
-        //public List<Ladok> LadokPosts { get; set; }
+        public int LadokId { get; set; }
 
     }
 }

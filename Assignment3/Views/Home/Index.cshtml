@@ -5,12 +5,12 @@
     ViewData["Title"] = "Home Page";
 }
 <body>
-    <!--Välj kurs och modul, vet ej hur det ska läsas in-->
+    <!--Välj kurs och modul-->
     <div id="chooseCourse">
 
         <label for="courseSelect">Kurskod</label>
         <select id="courseSelect" name="course">
-            <option value="crs" >Välj kurs</option>
+            <option value="crs">Välj kurs</option>
 
             @{ var courses = Course.MadeUpCourses;
                 @foreach (var c in courses)
@@ -23,25 +23,27 @@
 
         <select id="moduleSelect" name="modul">
             <option>-------</option>
-
         </select>
+
+        <!--Hämta studenter-knapp-->
         <button class="buttonGetStudents" id="getStudentsBtn" type="button" onclick="getStudents()">Hämta studenter</button>
 
     </div>
-    
-        <table class="table table-striped">
-            <tr class="bg-info">
-                <th></th>
-                <th>StudentID</th>
-                <th>Namn</th>
-                <th>Betyg Canvas</th>
-                <th>Examinationsdatum</th>
-                <th>Betyg i Ladok</th>
-            </tr>
-            <tbody id="myTable">
-            </tbody>
-        </table>
-        <button class="buttonRegister" type="button" onclick="setStudents()">Registrera resultat</button>
-        
+    <!--Tabell-->
+    <table class="table table-striped">
+        <tr class="bg-info">
+            <th></th>
+            <th>StudentID</th>
+            <th>Namn</th>
+            <th>Betyg Canvas</th>
+            <th>Examinationsdatum</th>
+            <th>Betyg i Ladok</th>
+        </tr>
+        <tbody id="myTable">
+        </tbody>
+    </table>
+    <!--Registrera-knapp-->
+    <button class="buttonRegister" type="button" onclick="setStudents()">Registrera resultat</button>
+
 </body>
 

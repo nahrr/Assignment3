@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Assignment3.Controllers
 {
+    // Controller för Ladok - Simulerar Ladok API.
+
     [Route("api/[controller]")]
     [ApiController]
     public class LadokController : ControllerBase
@@ -21,7 +23,6 @@ namespace Assignment3.Controllers
         }
 
         [Route("{studentSsn}/{gradeToLadok}/{module}/{date}/{course}")]
-
         [HttpGet]
         public string RegisterResult(string studentssn, string gradeToLadok, string module, DateTime date, string course)
         {

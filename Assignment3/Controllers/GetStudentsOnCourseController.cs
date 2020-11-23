@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 namespace Assignment3.Controllers
 {
 
+    // Controller för att få data från "simulerat Canvas". Returnerar namn och betyg på studenter aktuell kurs och modul.
+
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
@@ -20,7 +22,7 @@ namespace Assignment3.Controllers
             this._context = context;
         }
 
-[Route("{courseCode}/{moduleCode}")]
+    [Route("{courseCode}/{moduleCode}")]
         [HttpGet]
         public string GetStudentsByCourseCode(string courseCode, string moduleCode)
         {

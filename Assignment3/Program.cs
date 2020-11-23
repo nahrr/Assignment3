@@ -20,6 +20,7 @@ namespace Assignment3
            host.Run();
         }
 
+        // Skapar databasen om den inte redan existerar
         private static void CreateDbIfNotExists(IHost host)
         {
             using (var scope = host.Services.CreateScope())

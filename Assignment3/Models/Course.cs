@@ -7,12 +7,13 @@ namespace Assignment3.Models
 {
     public class Course
     {
+        // Properties för Kursobjekt
         public int CourseId { get; set; }
         public string CourseCode { get; set; }
         public string CourseName { get; set; }
-        
         public List<Module> Modules { get; set; }
 
+        //Mock-data för kurser (och moduler)
         public static List<Course> MadeUpCourses =>
             new List<Course>
             {
@@ -24,21 +25,18 @@ namespace Assignment3.Models
                     {
                         new Module
                         {
-                            //ModuleId = 1,
                             ModuleCode = "005",
-                            ModuleDesc = "Inlämningsuppgifter",
+                            ModuleDesc = "Inlämningsuppgifter"
                         },
                         new Module
                         {
-                            //ModuleId = 2,
                             ModuleCode = "006",
                             ModuleDesc = "Tentamen"  
                         },
                         new Module
                         {
-                            //ModuleId = 3,
                             ModuleCode = "001",
-                            ModuleDesc = "Projekt",
+                            ModuleDesc = "Projekt"
                         }
                     }
                 },
@@ -51,21 +49,17 @@ namespace Assignment3.Models
                     {
                         new Module
                         {
-                            //ModuleId = 1,
                             ModuleCode = "005",
-                            ModuleDesc = "Inlämningsuppgifter",
-
+                            ModuleDesc = "Inlämningsuppgifter"
                         },
                         new Module
                         {
-                            //ModuleId = 2,
                             ModuleCode = "006",
-                            ModuleDesc = "Tentamen",
-
+                            ModuleDesc = "Tentamen"
                         }
                     }
                 }
-                    };
+            };
     }
 }
 

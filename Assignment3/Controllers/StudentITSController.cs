@@ -10,6 +10,8 @@ using Newtonsoft.Json;
 
 namespace Assignment3.Controllers
 {
+    // Controller för StudentITS - Simulerar StudentITS API.
+
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]
@@ -28,13 +30,10 @@ namespace Assignment3.Controllers
         [HttpGet]
         public string GetSsnByStudId(string studentId)
         {
-            //var course = _context.Courses.FirstOrDefault(x => x.CourseCode.Equals(courseCode, StringComparison.InvariantCultureIgnoreCase));
             var student = _context
                 .Students
-                //.Include(x => x.StudentId)
                 .FirstOrDefault(x => x.StudentId == studentId);
-            // string ett = student.Ssn.ToString();
-            // string s = JsonConvert.SerializeObject(student.Ssn);
+
             return $"{student.Ssn}";
 
         }

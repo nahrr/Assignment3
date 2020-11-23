@@ -3,7 +3,6 @@
 
 // Write your JavaScript code.
 
-
 $('#courseSelect').on('change', function () {
 
     var e = document.getElementById("courseSelect")
@@ -15,7 +14,7 @@ $('#courseSelect').on('change', function () {
     {
         return;
     }
-
+    // API-anrop till Epok. Tar kurskod och returnerar moduler och visar de i scrolldown-menyn för aktuell kurs.
     $.ajax({
         url: "http://localhost:51526/api/epok/" + result
 
@@ -43,32 +42,31 @@ function getStudents() {
 
     var e = document.getElementById("courseSelect");
     var course = e.options[e.selectedIndex].text;
-
-    
+  
     var moduleDropdown = document.getElementById("moduleSelect");
     var module = moduleDropdown.options[moduleDropdown.selectedIndex].value;
 
     if (module == null) return;
 
+    // API-anrop till "simulerat Canvas". Tar kurskod och aktuell modul och returnerar lista med studenter på aktuell modul.
     $.ajax({
         url: "http://localhost:51526/api/GetStudentsOnCourse/" + course + "/" + module
     }).then(function (data) {
+
         $('#myTable').empty();
-         var array = data.split(";");
-      ///   var array = data.split("|");
+        var array = data.split(";");
         var correctArray = []
+
         for (var i = 0; i < array.length; i++) {
             var object = array[i].split("|");
             var name = object[0];
             var grade = object[1];
             var studentId = object[2];
             var student = { "name": name, "grade": grade, "studentId": studentId}
-           // console.log(student)
             correctArray.push(student)
             console.log(correctArray)
         }
-
-     
+  
         buildTable(correctArray)
         
         function buildTable(data) {
@@ -99,7 +97,6 @@ function getStudents() {
 
 function setStudents() {
 
-   
     var course = document.getElementById("courseSelect").value;
     var module = document.getElementById("moduleSelect").value;
 
@@ -118,27 +115,24 @@ function setStudents() {
                 alert("Välj datum för rad " + (i+1));
                 continue;
             }
-
-            console.log(date);
-            console.log(gradeToLadok);
-            console.log(module);
-            console.log(course);
+            //console.log(date);
+            //console.log(gradeToLadok);
+            //console.log(module);
+            //console.log(course);
             var studentId = table.rows[i].cells[1].firstChild.innerHTML;
-            console.log(studentId);
+            //console.log(studentId);
 
-
+            // API-anrop till StudentITS - tar studentId och returnerar personnummer.
             var getSsn = $.ajax({
                 url: "http://localhost:51526/api/studentits/" + studentId,
                 success: function (response) {
-
                     successCallback(response);
                 }
             });
 
+            // API-anrop till Ladok - Tar personnummer, betyg, modul, datum och kurs och sparar detta som en post i "Ladokdatabasen".
             function successCallback(responseObj) {
-                // Do something like read the response and show data
-                console.log(responseObj);
-               // alert(JSON.stringify(responseObj)); // Only applicable to JSON response
+               //console.log(responseObj);
                var studentssn = responseObj;
                 $.ajax({
                     url: "http://localhost:51526/api/ladok/" + studentssn + "/" + gradeToLadok + "/" + module + "/" + date + "/" + course

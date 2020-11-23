@@ -27,10 +27,9 @@ namespace Assignment3
         {
             services.AddControllersWithViews();
 
-            //**
+            // Använder en InMemory-Databas (Databasen skapas i minnet)
             services.AddDbContext<Data.JAContext>(options =>
                 options.UseInMemoryDatabase("TestDb"));
-                //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
         }
 
 

@@ -7,6 +7,10 @@ using Microsoft.EntityFrameworkCore;
 namespace Assignment3.Data
 {
 
+    /* EntityFramework
+     * Skapar databastabeller (In Memory) och databaskopplingar
+     */
+
     public class JAContext : DbContext
     {
         public JAContext(DbContextOptions<JAContext> options) : 
