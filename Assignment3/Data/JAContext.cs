@@ -13,10 +13,11 @@ namespace Assignment3.Data
 
     public class JAContext : DbContext
     {
-        public JAContext(DbContextOptions<JAContext> options) : 
-            base(options)
+        public JAContext(DbContextOptions<JAContext> options) : base(options)
         {
+
         }
+
         public DbSet<Models.Student> Students { get; set; }
         public DbSet<Models.Course> Courses { get; set; }
         public DbSet<Models.Module> Modules { get; set; }

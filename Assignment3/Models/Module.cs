@@ -8,8 +8,7 @@ namespace Assignment3.Models
         public int ModuleId { get; set; }
         public string ModuleCode { get; set; }
         public string ModuleDesc { get; set; }
-        public Course Course { get; set; }
-   
+        public Course Course { get; set; }  
     }
 
 }

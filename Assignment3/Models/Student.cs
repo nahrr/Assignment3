@@ -19,9 +19,9 @@ namespace Assignment3.Models
         
         // Mock-data för studenter
         public static List<Student> MadeUpStudents =>
-                  new List<Student>
-                  {
-                    new Student {
+            new List<Student>
+            {
+                new Student {
                     FirstName = "Kalle",
                     LastName = "Anka",
                     Ssn = "801010-1111",
@@ -29,9 +29,9 @@ namespace Assignment3.Models
                     CourseCode = "D0032X",
                     CourseModule = "005",
                     GradeCanvas = "G"
-                    },
+                },
 
-                    new Student {
+                new Student {
                     FirstName = "Kalle",
                     LastName = "Anka",
                     Ssn = "801010-1111",
@@ -39,9 +39,9 @@ namespace Assignment3.Models
                     CourseCode = "D0032X",
                     CourseModule = "006",
                     GradeCanvas = "G"
-                    },
+                },
 
-                    new Student {
+                new Student {
                     FirstName = "Kalle",
                     LastName = "Anka",
                     Ssn = "801010-1111",
@@ -49,9 +49,9 @@ namespace Assignment3.Models
                     CourseCode = "D0032X",
                     CourseModule = "001",
                     GradeCanvas = "VG"
-                    },
+                },
 
-                    new Student {
+                new Student {
                     FirstName = "Musse",
                     LastName = "Pigg",
                     Ssn = "838383-2222",
@@ -59,9 +59,9 @@ namespace Assignment3.Models
                     CourseCode = "D0032X",
                     CourseModule = "005",
                     GradeCanvas = "VG"
-                    },
+                },
 
-                    new Student {
+                new Student {
                     FirstName = "Musse",
                     LastName = "Pigg",
                     Ssn = "838383-2222",
@@ -69,9 +69,9 @@ namespace Assignment3.Models
                     CourseCode = "D0032X",
                     CourseModule = "006",
                     GradeCanvas = "VG"
-                    },
+                },
 
-                    new Student {
+                new Student {
                     FirstName = "Musse",
                     LastName = "Pigg",
                     Ssn = "838383-2222",
@@ -80,9 +80,9 @@ namespace Assignment3.Models
                     CourseModule = "001",
                     GradeCanvas = "VG"
 
-                    },
+                },
 
-                    new Student {
+                new Student {
                     FirstName = "Gamma",
                     LastName = "Delta",
                     Ssn = "111111-2222",
@@ -90,9 +90,9 @@ namespace Assignment3.Models
                     CourseCode = "D0032X",
                     CourseModule = "006",
                     GradeCanvas = "U"
-                    },
+                },
 
-                    new Student {
+                new Student {
                     FirstName = "Gamma",
                     LastName = "Delta",
                     Ssn = "111111-2222",
@@ -100,9 +100,9 @@ namespace Assignment3.Models
                     CourseCode = "D0032X",
                     CourseModule = "005",
                     GradeCanvas = "G"
-                    },
+                },
 
-                    new Student {
+                new Student {
                     FirstName = "Gamma",
                     LastName = "Delta",
                     Ssn = "111111-2222",
@@ -110,10 +110,10 @@ namespace Assignment3.Models
                     CourseCode = "D0032X",
                     CourseModule = "001",
                     GradeCanvas = "G"
-                    },
+                },
 
 
-                    new Student {
+                new Student {
                     FirstName = "Epsilon",
                     LastName = "Zeta",
                     Ssn = "222222-2222",
@@ -121,9 +121,9 @@ namespace Assignment3.Models
                     CourseCode = "X0002X",
                     CourseModule = "005",
                     GradeCanvas = "VG"
-                    },
+                },
 
-                    new Student {
+                new Student {
                     FirstName = "Epsilon",
                     LastName = "Zeta",
                     Ssn = "222222-2222",
@@ -131,9 +131,9 @@ namespace Assignment3.Models
                     CourseCode = "X0002X",
                     CourseModule = "006",
                     GradeCanvas = "VG"
-                    },
+                },
 
-                    new Student {
+                new Student {
                     FirstName = "Epsilon",
                     LastName = "Gamma",
                     Ssn = "3333333-3333",
@@ -141,9 +141,9 @@ namespace Assignment3.Models
                     CourseCode = "X0002X",
                     CourseModule = "005",
                     GradeCanvas = "G"
-                    },
+                },
 
-                    new Student {
+                new Student {
                     FirstName = "Epsilon",
                     LastName = "Gamma",
                     Ssn = "3333333-3333",
@@ -151,9 +151,9 @@ namespace Assignment3.Models
                     CourseCode = "X0002X",
                     CourseModule = "006",
                     GradeCanvas = "U"
-                    }
+                }
 
-      };
+            };
 
     }
 }

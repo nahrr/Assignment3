@@ -25,7 +25,6 @@ namespace Assignment3.Controllers
             this._context = context;
         }
 
-
         [Route("{studentId}")]
         [HttpGet]
         public string GetSsnByStudId(string studentId)
@@ -37,7 +36,5 @@ namespace Assignment3.Controllers
             return $"{student.Ssn}";
 
         }
-
-
     }
 }
